@@ -35,7 +35,17 @@ public class Main {
         boolean run = true;
 
         while(run) {
-        System.out.println("Which exercise do you run\nchoose between 1 <=> 11");
+        System.out.println("Which exercise do you run\nchoose between 1 <=> 11\n");
+        System.out.println("1 == print out the first names\n"
+        		+ "2 == Remove the words that have odd lengths\n"
+        		+ "3 == Replace every word in the list with its upper case\n"
+        		+ "4 == Convert every key-value pair of the map\n"
+        		+ "5 == Create a new thread that prints\n"
+        		+ "6 == By using stream create a new list\n"
+        		+ "7 == Modify exercise 6\n"
+        		+ "8 == Turn list persons into a stream\n"
+        		+ "9 == Create a new list from this.persons\n"
+        		+ "10 == list from persons that should only contain those with lastname");
         int op = sc.nextInt();
                 
     	  switch(op) {

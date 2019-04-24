@@ -43,9 +43,8 @@ public class Lab {
 
     /**
      * Exercise2
-     * Remove the words that have odd lengths from the local list using removeIf()
-     * Удалите слова, которые имеют нечетные длины из локального списка, используя removeIf
-     * Print out the remainder // Распечатайте остаток
+     * Remove the words that have odd lengths from the local list using removeIf()     
+     * Print out the remainder 
      */
     public void exercise2() {
         System.out.println("\nRunning exercise 2:\n");
@@ -72,9 +71,7 @@ public class Lab {
     /**
      * Exercise 3
      * Replace every word in the list with its upper case equivalent using replaceAll()
-     * Замените каждое слово в списке его эквивалентом в верхнем регистре, используя replaceAll
      * Print out the remainder
-     * Распечатайте остаток
      */
     public void exercise3() {
         System.out.println("\nRunning exercise 3:\n");
@@ -125,7 +122,6 @@ public class Lab {
     /**
      * Exercise 5
      * Create a new thread that prints the numbers from the local list
-     * Создайте новый поток, который печатает номера из локального списка
      */
     public void exercise5() {
         System.out.println("\nRunning exercise 5:\n");
@@ -160,8 +156,6 @@ public class Lab {
      * Exercise 6
      * By using stream create a new list with all the strings from the original list converted to
      * lower case and print them out.
-     * Используя stream, создайте новый список со всеми строками из исходного списка, 
-     * преобразованными в нижний регистр, и распечатайте их.
      * Hint: Use .collect as a terminal operation(closing and ending)
      */
     public void exercise6() {
@@ -189,7 +183,6 @@ public class Lab {
     /**
      * Exercise 7
      * Modify exercise 6 so that the new list only contains strings that have an odd length
-     * Измените упражнение 6 так, чтобы новый список содержал только строки нечетной длины
      */
     public void exercise7() {
         System.out.println("\nRunning exercise 7:\n");
@@ -221,12 +214,13 @@ public class Lab {
 //        persons.stream()   
 //        .filter(p-> p.getLastName().charAt(0)=='A')
 //        .forEach(System.out::println);
-        
-        System.out.println("<<Persons whose last Name starts with 'A'>>\n");
-      persons.stream()   
-      .filter(p-> p.getLastName().contains("A"))
-      .forEach(System.out::println);
-        
+                
+		System.out.println("<<Persons whose last Name starts with 'A'>>\n");
+		List<Person> sortList = persons.stream()
+				.sorted((p1, p2) -> p1.getLastName().compareToIgnoreCase(p2.getLastName()))
+				.collect(Collectors.toList());
+		sortList.forEach(System.out::println);
+       
         /* Your code here */
 
     }
@@ -234,7 +228,6 @@ public class Lab {
     /**
      * Exercise 9
      * Create a new list from this.persons that should be sorted by lastName
-     * Создайте новый список из this.persons, который должен быть отсортирован по фамилии
      */
     public void exercise9(){
         System.out.println("\nRunning exercise 9:\n");
@@ -243,7 +236,12 @@ public class Lab {
         List<Person> sorted =persons.stream()
         		.sorted((p1,p2)-> p1.getLastName().compareToIgnoreCase(p2.getLastName()))
         		.collect(Collectors.toList());
-        sorted.forEach(System.out::println);
+        
+        
+//        List<Person> sorted =persons.stream()
+//        		.sorted((p1,p2)-> p1.getLastName().compareToIgnoreCase(p2.getLastName()))
+//        		.collect(Collectors.toList());
+//        sorted.forEach(System.out::println);
         
 //        System.out.println("<<Sorted by last Name:>>\n");
 //        Comparator<Person> lastName= (p1,p2) -> p1.getLastName()
